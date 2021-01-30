@@ -9,21 +9,12 @@ const rl = readline.createInterface({
 });
 
 let count = 0;
-let arr = [];
-let shiritori = '';
 let chance = 5;
-
-function checkLetter(str) {
-   let compareLetter = str[0];
-   let lastWord = arr[arr.length - 1];
-   let beforeLetter = lastWord[lastWord.length - 1];
-   //let beforeLetter = arr[0][arr.length - 1];
-   (compareLetter === beforeLetter) ? dingdong(str): ddaeng()
-}
+let shiritori = '';
+let firstWord = '';
 
 function dingdong(str) {
    count += 10;
-   arr.push(str);
    shiritori += ` => ${str}`;
    console.log(shiritori, '++', count, '점');
 }
@@ -50,18 +41,25 @@ function ddaeng() {
 //    clearTimeout(startTimeSet);
 // }
 
+
 function init() {
    console.log(force('시작할 단어를 입력하세요'))
    rl.on('line', (answer) => {
 
       if (answer === 'quit') rl.close();
 
-      if (arr.length === 0) {
+      if (firstWord.length === 0) {
          shiritori += answer;
-         arr.unshift(answer);
+         firstWord = answer;
          console.log(force('단어를 이어가세요'))
       } else {
-         checkLetter(answer)
+         if (firstWord[firstWord.length - 1] === answer[0]) {
+            dingdong(answer);
+            firstWord = answer; //!!!제일중요한 부분!!!//
+         } else {
+            ddaeng();
+         }
+
       }
    });
 
