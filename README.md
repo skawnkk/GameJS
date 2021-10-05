@@ -22,7 +22,6 @@ let 초기입력값 = 새로 입력한 값};
 <div markdown="1">
 <H3>🎈구구단 맞추기</H3> 
 
-![gugudan_play](https://i.esdrop.com/d/DtKJ9JFFD4.PNG)  
 -. 매우 단한 프로그램같았지만 반복프로세스를 구현하는게 node.js에서 쉽지않았다.  
 
 - #### 자바스크립트(while)  
