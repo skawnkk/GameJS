@@ -46,4 +46,7 @@ let 초기입력값 = 새로 입력한 값};
 </div>
 </details>
 
-
+<details>
+      <summary>myCar </summary>
+      : closure, promise 
+</details>
